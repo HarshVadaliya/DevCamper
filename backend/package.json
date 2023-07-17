@@ -1,0 +1,23 @@
+{
+  "name": "devcamper_api",
+  "version": "1.0.0",
+  "description": "DevCamper backend API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set NODE_ENV=production && node server",
+    "dev": "nodemon server"
+  },
+  "author": "Harsh V",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "morgan": "^1.10.0",
+    "node-geocoder": "^4.2.0",
+    "nodemon": "^2.0.22",
+    "slugify": "^1.6.6"
+  }
+}
