@@ -31,8 +31,8 @@ const BootcampSchema = new mongoose.Schema(
 		email: {
 			type: String,
 			match: [
-			/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-			'Please add a valid email'
+				/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+				'Please add a valid email'
 			]
 		},
 		address : {
@@ -136,6 +136,13 @@ BootcampSchema.pre('save', async function(next){
 	// Do not save address in DB
 	this.address = undefined;
 	next()
+})
+
+// Cascade delete courses when a bootcamp is deleted 
+BootcampSchema.pre('deleteOne', async function (next) {
+	console.log(`Courses being removed from botcamp ${this._id}`);
+	await this.model('Course').deleteMany( {bootcamp: this._id});
+	next();
 })
 
 // Reverse populate with Virtuals

@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "fffc6da9-ac02-455e-8964-7e834b2940b0",
+		"_postman_id": "4a80e66e-7155-4969-9cbe-111ed7406df5",
 		"name": "DevCamper API",
 		"description": "Backend API for DevCamper application to manage boot camps, courses, reviews, users & authentication",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27576067"
 	},
 	"item": [
 		{
@@ -34,7 +35,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"MernDev Bootcamp\",\r\n\t\t\"description\": \"Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development\",\r\n\t\t\"website\": \"https://Merndevcentral.com\",\r\n\t\t\"phone\": \"(444) 444-4444\",\r\n\t\t\"email\": \"enroll@devcentral.com\",\r\n\t\t\"address\": \"45 Upper College Rd Kingston RI 02881\",\r\n\t\t\"careers\": [\r\n\t\t\t\"Mobile Development\",\r\n\t\t\t\"Web Development\",\r\n\t\t\t\"Data Science\",\r\n\t\t\t\"Business\"\r\n\t\t],\r\n\t\t\"housing\": false,\r\n\t\t\"jobAssistance\": true,\r\n\t\t\"jobGuarantee\": true,\r\n\t\t\"acceptGi\": true\r\n}",
+							"raw": "\r\n\t{\r\n\t\t\"name\": \"Python Django Bootcamp\",\r\n\t\t\"description\": \"Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer\",\r\n\t\t\"website\": \"https://devworks.com\",\r\n\t\t\"phone\": \"(111) 111-1111\",\r\n\t\t\"email\": \"enroll@devworks.com\",\r\n\t\t\"address\": \"233 Bay State Rd Boston MA 02215\",\r\n\t\t\"careers\": [\"Web Development\", \"UI/UX\", \"Business\"],\r\n\t\t\"housing\": true,\r\n\t\t\"jobAssistance\": true,\r\n\t\t\"jobGuarantee\": false,\r\n\t\t\"acceptGi\": true\r\n\t}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -80,7 +81,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{URL}}/api/v1/bootcamps/64339c7370553ba352fe116e",
+							"raw": "{{URL}}/api/v1/bootcamps/5d725a1b7b292f5f8ceff788",
 							"host": [
 								"{{URL}}"
 							],
@@ -88,7 +89,7 @@
 								"api",
 								"v1",
 								"bootcamps",
-								"64339c7370553ba352fe116e"
+								"5d725a1b7b292f5f8ceff788"
 							]
 						},
 						"description": "Fetch a single boot camp from database by ID."
@@ -119,7 +120,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{URL}}/api/v1/bootcamps",
+							"raw": "{{URL}}/api/v1/bootcamps?page=2&limit=2",
 							"host": [
 								"{{URL}}"
 							],
@@ -127,11 +128,132 @@
 								"api",
 								"v1",
 								"bootcamps"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
 							]
 						},
 						"description": "Fetch all bootcamps from database. Includes pagination, filtering, etc."
 					},
 					"response": []
+				},
+				{
+					"name": "Get All Bootcamps In Radius",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/bootcamps/radius/02118/10",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bootcamps",
+								"radius",
+								"02118",
+								"10"
+							]
+						},
+						"description": "Get bootcamps within a radius of a specific zipcode."
+					},
+					"response": [
+						{
+							"name": "Get All Bootcamps In Radius",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/bootcamps/radius/02118/10",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"bootcamps",
+										"radius",
+										"02118",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "866"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"362-n1//HShQvmHvdsaMWcODtfEsZsY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Jun 2023 07:04:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"count\": 1,\n    \"data\": [\n        {\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    -71.10401,\n                    42.35086\n                ],\n                \"formattedAddress\": \"233 Bay State Rd, Boston, MA 02215, US\",\n                \"street\": \"233 Bay State Rd\",\n                \"city\": \"Boston\",\n                \"state\": \"MA\",\n                \"zipcode\": \"02215-1405\",\n                \"country\": \"US\"\n            },\n            \"_id\": \"5d713995b721c3bb38c1f5d0\",\n            \"name\": \"Devworks Bootcamp\",\n            \"description\": \"Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer\",\n            \"website\": \"https://devworks.com\",\n            \"phone\": \"(111) 111-1111\",\n            \"email\": \"enroll@devworks.com\",\n            \"careers\": [\n                \"Web Development\",\n                \"UI/UX\",\n                \"Business\"\n            ],\n            \"photo\": \"no-photo.jpg\",\n            \"housing\": true,\n            \"jobAssistance\": true,\n            \"jobGuarantee\": false,\n            \"acceptGi\": true,\n            \"user\": \"5d7a514b5d2c12c7449be045\",\n            \"createdAt\": \"2023-06-15T07:26:36.288Z\",\n            \"slug\": \"devworks-bootcamp\",\n            \"__v\": 0,\n            \"id\": \"5d713995b721c3bb38c1f5d0\"\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Bootcamp",
@@ -158,7 +280,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"housing\": false\r\n}",
+							"raw": "{\r\n    \"housing\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -166,7 +288,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}/api/v1/bootcamps/64339c8e70553ba352fe1170",
+							"raw": "{{URL}}/api/v1/bootcamps/5d725a1b7b292f5f8ceff788",
 							"host": [
 								"{{URL}}"
 							],
@@ -174,10 +296,65 @@
 								"api",
 								"v1",
 								"bootcamps",
-								"64339c8e70553ba352fe1170"
+								"5d725a1b7b292f5f8ceff788"
 							]
 						},
 						"description": "Update a single bootcamp in database by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Bootcamp photo",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Harsh/Downloads/favicon.ico"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/bootcamps/5d725a1b7b292f5f8ceff788/photo",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bootcamps",
+								"5d725a1b7b292f5f8ceff788",
+								"photo"
+							]
+						},
+						"description": "Route to update the bootcamp photo."
 					},
 					"response": []
 				},
@@ -187,7 +364,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/api/v1/bootcamps/643509d4d3e813a867729845",
+							"raw": "{{URL}}/api/v1/bootcamps/5d725a1b7b292f5f8ceff788",
 							"host": [
 								"{{URL}}"
 							],
@@ -195,15 +372,242 @@
 								"api",
 								"v1",
 								"bootcamps",
-								"643509d4d3e813a867729845"
+								"5d725a1b7b292f5f8ceff788"
 							]
 						},
 						"description": "Delete a bootcamp from database using ID."
 					},
 					"response": []
+				},
+				{
+					"name": "Get Courses For Bootcamp",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/bootcamps/5d713a66ec8f2b88b8f830b8/courses",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bootcamps",
+								"5d713a66ec8f2b88b8f830b8",
+								"courses"
+							]
+						},
+						"description": "Get the specific courses for a bootcamp"
+					},
+					"response": []
 				}
 			],
 			"description": "Bootcamps CRUD functionality."
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Create a bootcamp course",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Full Stack Web Dev-2\",\r\n    \"description\": \"In this course you will learn all about the front end with HTML, CSS, JavaScript, React, NodeJs, NextJs ExpressJs and MongoDb. You will master tools like Git and Webpack and also learn C# and ASP.NET with Postgres\",\r\n    \"weeks\": 10,\r\n    \"tuition\": 15900,\r\n    \"minimumSkill\": \"advanced\",\r\n    \"scholarhipsAvailable\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/bootcamps/5d725a037b292f5f8ceff787/courses",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bootcamps",
+								"5d725a037b292f5f8ceff787",
+								"courses"
+							]
+						},
+						"description": "Create a course for a specific bootcamp."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/courses?page=1&limit=4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"courses"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "4"
+								}
+							]
+						},
+						"description": "CRUD Courses\n\nFetch all Courses from database."
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single Course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/courses/5d725cb9c4ded7bcb480eaa1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"5d725cb9c4ded7bcb480eaa1"
+							]
+						},
+						"description": "Fetch a single Course from database by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Course",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"weeks\": \"12\",\r\n    \"tuition\": 14000,\r\n    \"minimumSkill\": \"advanced\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/courses/5d725cb9c4ded7bcb480eaa1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"5d725cb9c4ded7bcb480eaa1"
+							]
+						},
+						"description": "Update a single Course from database by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/courses/5d725a4a7b292f5f8ceff789",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"5d725a4a7b292f5f8ceff789"
+							]
+						},
+						"description": "Delete a course from database using ID."
+					},
+					"response": []
+				}
+			],
+			"description": "~~CRUD Courses~~"
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"email\": \"john@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Add user to database with encrypted password."
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
