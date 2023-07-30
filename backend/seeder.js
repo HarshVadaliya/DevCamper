@@ -31,6 +31,10 @@ const importData = async () => {
         await Bootcamp.create(bootcamps)
         // await Course.create(courses)
         console.log('Data Imported ... '.green.inverse);
+
+
+
+        
     } catch (err) {
         console.error(err);
     }
