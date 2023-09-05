@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
 const logger = require('./middleware/logger')
 const morgan = require('morgan');
 const fileupload = require('express-fileupload')
@@ -22,6 +23,7 @@ const app = express();
 
 app.use(express.json());
 
+// app.use(cookieParser);
 // app.use(logger);
 
 //Dev logging middleware
