@@ -171,7 +171,7 @@ exports.deleteCourse = asyncHandler(async (req, res, next) => {
 			);	
 		} 
 		
-		course = await Course.findByIdAndDelete(id);
+		course = await course.deleteOne({ _id: id});
 
 		res.status(200).json({success : true, data: {} });
 });
